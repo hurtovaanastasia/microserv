@@ -16,6 +16,11 @@ public class LocationController {
         this.locationRepo = repository;
     }
 
+    @GetMapping
+    public Iterable<Location> getAllLocations() {
+        return locationRepo.findAll();
+    }
+
     @GetMapping("/city/{city}")
     public Optional<Location> findByCity(@PathVariable String city) {
         return locationRepo.findByCity(city);
